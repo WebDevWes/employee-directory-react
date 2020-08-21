@@ -1,17 +1,50 @@
-import React from "react";
-import Main from "./components/Main";
+import React, { Component } from "react";
+import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
-import Header from "./components/Header";
+import Title from "./components/Title";
+import API from "./utils/API.js";
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
+  // Setting this.state.friends to the friends json array
+  state = {
+    employees: [{}]
+  };
+
+  componentDidMount() {
+    API.getEmployees().then(results => {
+      this.setState({
+        employees: results.data.results,
+      })
+      console.log(this.state);
+    });
+  }
+
+  // removeFriend = id => {
+  //   // Filter this.state.friends for friends with an id not equal to the id being removed
+  //   const friends = this.state.friends.filter(friend => friend.id !== id);
+  //   // Set this.state.friends equal to the new friends array
+  //   this.setState({ friends });
+  // };
+
+  // Map over this.state.friends and render a FriendCard component for each friend object
+  render() {
+    return (
       <Wrapper>
-        <Header />
-        <Main />
+        {/* <Title>Friends List</Title>
+        {this.state.friends.map(friend => (
+          <FriendCard
+            removeFriend={this.removeFriend}
+            id={friend.id}
+            key={friend.id}
+            name={friend.name}
+            image={friend.image}
+            occupation={friend.occupation}
+            location={friend.location}
+          />
+        ))} */}
       </Wrapper>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
