@@ -15,33 +15,33 @@ class App extends Component {
       this.setState({
         employees: results.data.results,
       })
-      console.log(this.state);
+      console.log(this.state.employees);
     });
   }
 
-  // removeFriend = id => {
-  //   // Filter this.state.friends for friends with an id not equal to the id being removed
-  //   const friends = this.state.friends.filter(friend => friend.id !== id);
-  //   // Set this.state.friends equal to the new friends array
-  //   this.setState({ friends });
-  // };
+  removeEmployee = id => {
+    // Filter this.state.friends for friends with an id not equal to the id being removed
+    const employees = this.state.employees.filter(employee => employee.id !== id);
+    // Set this.state.friends equal to the new friends array
+    this.setState({ employees });
+  };
 
   // Map over this.state.friends and render a FriendCard component for each friend object
   render() {
     return (
       <Wrapper>
-        {/* <Title>Friends List</Title>
-        {this.state.friends.map(friend => (
+        <Title>Employee Directory</Title>
+        {this.state.employees.map(employee => (
           <FriendCard
-            removeFriend={this.removeFriend}
-            id={friend.id}
-            key={friend.id}
-            name={friend.name}
-            image={friend.image}
-            occupation={friend.occupation}
-            location={friend.location}
+            removeEmployee={this.removeEmployee}
+            // id={employee.id}
+            // key={employee.id}
+            // name={employee.name}
+            // image={employee.image}
+            // occupation={employee.occupation}
+            // location={employee.location}
           />
-        ))} */}
+        ))}
       </Wrapper>
     );
   }
