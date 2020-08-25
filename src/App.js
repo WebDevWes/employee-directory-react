@@ -15,7 +15,8 @@ class App extends Component {
       this.setState({
         employees: results.data.results,
       })
-      console.log(this.state.employees);
+      // console.log(this.state.employees);
+      this.state.employees.map(employee => ( console.log(employee.name.first) ))
     });
   }
 
@@ -34,10 +35,10 @@ class App extends Component {
         {this.state.employees.map(employee => (
           <FriendCard
             removeEmployee={this.removeEmployee}
-            // id={employee.id}
+            // id={employee}
             // key={employee.id}
-            // name={employee.name}
-            // image={employee.image}
+            // name= {employee.name.first}
+            // image={employee.picture.medium}
             // occupation={employee.occupation}
             // location={employee.location}
           />
