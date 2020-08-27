@@ -64,16 +64,13 @@ class App extends Component {
 
   filterEmployees = (event) => {
     event.preventDefault();
-    if (!this.state.filter) {
-      return;
-    } else {
-      const employees = employees.filter(
-        (employee) =>
-          employee.name.first.toLowerCase() === this.state.filter.toLowerCase()
-      );
-      console.log("employeessssss???", employees);
-      this.setState({ employees: employees });
+    if(!this.state.filter){
+      return
     }
+    const filtered = this.state.employees.filter(
+      (employee) => employee.name.toLowerCase() === this.state.filter.toLowerCase()
+    );
+    this.setState({ employees: filtered });
   };
 
   removeEmployee = (id) => {
