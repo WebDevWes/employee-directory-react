@@ -3,11 +3,11 @@ import "./style.css";
 
 function Button1(props) {
   return (
-    <div>
+    <div className="button">
       <button
         onClick={props.handleButtonClick}
         type="button"
-        className="button btn btn-light"
+        className="btn btn-light"
       >
         Sort Ascending
       </button>

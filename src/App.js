@@ -5,11 +5,13 @@ import Title from "./components/Title";
 import API from "./utils/API.js";
 import Button from "./components/buttons/button";
 import Button2 from "./components/buttons/button2";
+import SearchForm from "./components/buttons/SearchForm";
 
 class App extends Component {
   // Setting this.state.employees to the employees json array
   state = {
     employees: [],
+    filter: "",
   };
 
   componentDidMount() {
@@ -52,6 +54,28 @@ class App extends Component {
     this.sortReverseEmployees(this.state.employees);
   };
 
+  handleOnChange = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  filterEmployees = (event) => {
+    event.preventDefault();
+    if (!this.state.filter) {
+      return;
+    } else {
+      const employees = employees.filter(
+        (employee) =>
+          employee.name.first.toLowerCase() === this.state.filter.toLowerCase()
+      );
+      console.log("employeessssss???", employees);
+      this.setState({ employees: employees });
+    }
+  };
+
   removeEmployee = (id) => {
     // Filter this.state.employees for employees with an id not equal to the id being removed
     const employees = this.state.employees.filter(
@@ -65,9 +89,14 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Title>Employee Directory</Title>
         <Button handleButtonClick={this.handleButtonClick} />
         <Button2 handleButtonClick2={this.handleButtonClick2} />
+        <Title>Employee Directory</Title>
+        <SearchForm
+          handleOnChange={this.handleOnChange}
+          filter={this.state.filter}
+          filterEmployees={this.filterEmployees}
+        />
         {this.state.employees.map((employee) => (
           <FriendCard
             removeEmployee={this.removeEmployee}
