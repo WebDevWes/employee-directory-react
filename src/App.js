@@ -68,7 +68,7 @@ class App extends Component {
       return
     }
     const filtered = this.state.employees.filter(
-      (employee) => employee.name.first.toLowerCase() === this.state.filter.toLowerCase()
+      (employee) => employee.name.first.toLowerCase() === this.state.filter.toLowerCase() || employee.name.last.toLowerCase() === this.state.filter.toLowerCase() 
     );
     this.setState({ employees: filtered });
   };
