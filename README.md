@@ -11,13 +11,11 @@ Github Email Address: wesaboo@gmail.com
 
 Description: Employee Directory built for the sole purpose of learning ReactJS, includes Sort/Filter/Delete functions
 
-![Screenshot](/assets/images/dashboard.png)
-
 How to use: Buttons on top will Sort Employees or filter employees by name. RandomUser API was used to generate random employees.
 
-![Screenshot](/assets/images/indexPage.png)
+![Screenshot](/assets/images/EmployeeDirectory2.png)
 ---
-![Screenshot](/assets/images/addWorkouts.png)
+![Screenshot](/assets/images/EmployeeDirectory.png)
 
 License: ISC
 
