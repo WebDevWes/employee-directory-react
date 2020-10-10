@@ -1,11 +1,11 @@
 ![License Badge](https://img.shields.io/badge/License-ISC-green.svg)
 
 ### Deployed app on Github Pages 
-https://wesaboo.github.io/employee-directory-react/
+https://webdevwes.github.io/employee-directory-react/
 
-### Github Username: Wesaboo
+### Github Username: WebDevWes
 
-Github Email Address: wesaboo@gmail.com
+Github Email Address: WebDevWes89@gmail.com
 
 ## Project/Repo Title: Employee Directory
 
