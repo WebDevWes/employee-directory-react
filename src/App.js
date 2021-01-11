@@ -33,6 +33,7 @@ class App extends Component {
     this.setState({ employees: employeeSort });
   };
 
+  // Button Click to call sort function
   handleButtonClick = (event) => {
     event.preventDefault();
     this.sortEmployees(this.state.employees);
@@ -49,11 +50,13 @@ class App extends Component {
     this.setState({ employees: employeeSort });
   };
 
+  // Button Click to call sort function reverse
   handleButtonClick2 = (event) => {
     event.preventDefault();
     this.sortReverseEmployees(this.state.employees);
   };
 
+  // onchange to set into state from input
   handleOnChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
@@ -62,17 +65,21 @@ class App extends Component {
     });
   };
 
+  // Onchange handler to filter employees
   filterEmployees = (event) => {
     event.preventDefault();
-    if(!this.state.filter){
-      return
+    if (!this.state.filter) {
+      return;
     }
     const filtered = this.state.employees.filter(
-      (employee) => employee.name.first.toLowerCase() === this.state.filter.toLowerCase() || employee.name.last.toLowerCase() === this.state.filter.toLowerCase() 
+      (employee) =>
+        employee.name.first.toLowerCase() === this.state.filter.toLowerCase() ||
+        employee.name.last.toLowerCase() === this.state.filter.toLowerCase()
     );
     this.setState({ employees: filtered });
   };
 
+  // onclick to remove employeees
   removeEmployee = (id) => {
     // Filter this.state.employees for employees with an id not equal to the id being removed
     const employees = this.state.employees.filter(
