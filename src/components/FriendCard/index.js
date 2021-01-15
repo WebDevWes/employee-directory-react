@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 
+// Reusable card component to be mapped
 function FriendCard(props) {
   return (
     <div className="card">

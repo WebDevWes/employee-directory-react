@@ -4,7 +4,6 @@ import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import API from "./utils/API.js";
 import Button from "./components/buttons/button";
-import Button2 from "./components/buttons/button2";
 import SearchForm from "./components/buttons/SearchForm";
 
 class App extends Component {
@@ -15,6 +14,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    // After page load, make the API call
     API.getEmployees().then((results) => {
       this.setState({
         employees: results.data.results,
@@ -93,8 +93,18 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Button handleButtonClick={this.handleButtonClick} />
-        <Button2 handleButtonClick2={this.handleButtonClick2} />
+        <Button
+          handleButtonClick={this.handleButtonClick}
+          class="btn btn-light"
+        >
+          Sort Ascending
+        </Button>
+        <Button
+          handleButtonClick={this.handleButtonClick2}
+          class="btn btn-dark"
+        >
+          Sort Descending
+        </Button>
         <Title>Employee Directory</Title>
         <SearchForm
           handleOnChange={this.handleOnChange}

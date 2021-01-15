@@ -1,18 +1,18 @@
 import React from "react";
-import "./style.css";
 
-function Button1(props) {
+// Button component for ascending and descending sort
+function Button(props) {
   return (
     <div className="button">
       <button
         onClick={props.handleButtonClick}
         type="button"
-        className="btn btn-light"
+        className={props.class}
       >
-        Sort Ascending
+        {props.children}
       </button>
     </div>
   );
 }
 
-export default Button1;
+export default Button;
